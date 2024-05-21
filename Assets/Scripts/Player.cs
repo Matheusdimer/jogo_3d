@@ -17,11 +17,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var axis = Input.GetAxis("Horizontal");
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
 
         if (_rigidbody.velocity.magnitude < maximumVelocity)
         {
-            _rigidbody.AddForce(new Vector3(axis * forceMultiplier, 0, 0));
+            _rigidbody.AddForce(new Vector3(horizontal * forceMultiplier, 0, vertical * forceMultiplier));
         }
     }
 
