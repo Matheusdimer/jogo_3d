@@ -5,8 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject hazardPrefab;
+    
     public int maxHazardsNumber = 3;
+    
     public TextMeshPro scoreText;
+
+    public GameObject player;
     
     private float timer;
     
@@ -31,8 +35,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < hazardsNumber; i++)
         {
             var x = Random.Range(-7, 7);
-            var drag = Random.Range(0f, 3f);
-            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, 0), Quaternion.identity);
+            var drag = Random.Range(0f, 2f);
+            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, player.transform.position.z + 4), Quaternion.identity);
             hazard.GetComponent<Rigidbody>().drag = drag;
         }
 
