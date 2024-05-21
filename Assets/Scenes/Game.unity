@@ -2481,6 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceMultiplier: 16
   maximumVelocity: 3.5
+  jumpForce: 5
 --- !u!4 &4610860917556235005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8310287486893762779, guid: 4e661087ec6cd6af99a470bc2ba80b09, type: 3}
