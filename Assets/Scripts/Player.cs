@@ -32,4 +32,12 @@ public class Player : MonoBehaviour
         GameManager.GameOver();
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("star"))
+        {
+            Debug.Log("encostou");
+        }
+    }
 }
