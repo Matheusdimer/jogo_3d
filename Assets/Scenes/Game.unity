@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2139414340}
+  fov: 8
 --- !u!4 &989230161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 760961726728116738, guid: 94fcc88e4ad5c7c4b801252fd72daf45, type: 3}
@@ -1825,6 +1826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceMultiplier: 16
   maximumVelocity: 3.5
+  jumpForce: 5
 --- !u!1001 &4570206262285350072
 PrefabInstance:
   m_ObjectHideFlags: 0

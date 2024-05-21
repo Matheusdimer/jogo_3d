@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public float forceMultiplier = 10;
     public float maximumVelocity = 3;
+    public float jumpForce = 0.5f;
     
     private Rigidbody _rigidbody;
 
@@ -17,13 +18,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var xAxis = Input.GetAxis("Horizontal");
+        var zAxis = Input.GetAxis("Vertical");
+        
+        var xVelocity = _rigidbody.velocity.x;
+        var zVelocity = _rigidbody.velocity.z;
+        
+        _rigidbody.AddForce(new Vector3(CalculateForce(xVelocity, xAxis), 0, CalculateForce(zVelocity, zAxis)));
 
-        if (_rigidbody.velocity.magnitude < maximumVelocity)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            _rigidbody.AddForce(new Vector3(horizontal * forceMultiplier, 0, vertical * forceMultiplier));
+            _rigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
+    }
+
+    private float CalculateForce(float axisVelocity, float axis)
+    {
+        // Direções contrárias, adiciona força
+        if ((axisVelocity < 0 && axis > 0) || (axisVelocity > 0 && axis < 0))
+        {
+            return axis * forceMultiplier;
+        }
+
+        // Mesma direção, checa se não ultrapassou a velocidade máxima
+        if (Math.Abs(axisVelocity) < maximumVelocity)
+        {
+            return axis * forceMultiplier;
+        }
+
+        return 0;
     }
 
     private void OnCollisionEnter(Collision collision)
