@@ -7,8 +7,10 @@ public class Camera : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField] private float fov;
+
     private void LateUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z - fov);
     }
 }
