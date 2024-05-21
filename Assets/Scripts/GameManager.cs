@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             hazard.GetComponent<Rigidbody>().drag = drag;
         }
 
-        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
 
         yield return SpawnHazards();
     }
