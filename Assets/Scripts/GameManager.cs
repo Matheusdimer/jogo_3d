@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (gameOver) return;
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score;
     }
 
     private IEnumerator SpawnHazards()

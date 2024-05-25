@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +18,5 @@ public class StarScript : MonoBehaviour
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, 10),1);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision != null)
-        {
-        }
     }
 }

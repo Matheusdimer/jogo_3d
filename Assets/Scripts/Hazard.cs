@@ -19,7 +19,6 @@ public class Hazard : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Hazard"))
         {
-            GameManager.IncrementScore();
             Destroy(gameObject);
         }
     }
