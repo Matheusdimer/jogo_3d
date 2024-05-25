@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("star"))
+        if (other.gameObject.CompareTag("Star"))
         {
             Destroy(other.gameObject);
             gameManager.IncrementScore();
