@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         
         _rigidbody.AddForce(new Vector3(CalculateForce(xVelocity, xAxis), 0, CalculateForce(zVelocity, zAxis)));
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             _rigidbody.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
         }
@@ -65,5 +65,13 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             gameManager.IncrementScore();
         }
+    }
+    
+    public bool IsGrounded() {
+        float rayLength = 1.1f; // Adjust based on your character's size
+        if (Physics.Raycast(transform.position, Vector3.down, out _, rayLength)) {
+            return true;
+        }
+        return false;
     }
 }
