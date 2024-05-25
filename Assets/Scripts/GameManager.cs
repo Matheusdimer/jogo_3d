@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,18 +15,11 @@ public class GameManager : MonoBehaviour
     
     private float timer;
     
-    private static int score;
-    private static bool gameOver;
+    private int score;
     
     void Start()
     {
         StartCoroutine(SpawnHazards());
-    }
-
-    void Update()
-    {
-        if (gameOver) return;
-        scoreText.text = "Score: " + score;
     }
 
     private IEnumerator SpawnHazards()
@@ -35,23 +29,23 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < hazardsNumber; i++)
         {
             var x = Random.Range(-7, 7);
-            var drag = Random.Range(0f, 2f);
-            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, player.transform.position.z + 4), Quaternion.identity);
-            hazard.GetComponent<Rigidbody>().drag = drag;
+            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, player.transform.position.z + 5), Quaternion.identity);
+            hazard.GetComponent<Rigidbody>().drag = 0;
         }
 
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        yield return new WaitForSeconds(Random.Range(0.5f, 2f));
 
         yield return SpawnHazards();
     }
 
-    public static void GameOver()
+    public void GameOver()
     {
-        gameOver = true;
+        SceneManager.LoadScene("GameOver");
     }
 
-    public static void IncrementScore()
+    public void IncrementScore()
     {
         score++;
+        scoreText.text = "Score: " + score;
     }
 }

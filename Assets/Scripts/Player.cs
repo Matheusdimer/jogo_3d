@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
     public float forceMultiplier = 10;
     public float maximumVelocity = 3;
     public float jumpForce = 0.5f;
+
+    public GameManager gameManager;
     
     private Rigidbody _rigidbody;
 
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Hazard")) return;
-        GameManager.GameOver();
+        gameManager.GameOver();
         Destroy(gameObject);
     }
     
@@ -61,7 +63,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("star"))
         {
             Destroy(other.gameObject);
-            GameManager.IncrementScore();
+            gameManager.IncrementScore();
         }
     }
 }
