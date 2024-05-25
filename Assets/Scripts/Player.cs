@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < -10)
+        {
+            gameManager.GameOver();
+            return;
+        }
+        
         var xAxis = Input.GetAxis("Horizontal");
         var zAxis = Input.GetAxis("Vertical");
         
