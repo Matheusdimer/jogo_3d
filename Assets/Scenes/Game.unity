@@ -2462,10 +2462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35592df24ac575d2abffe057948ea74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazardPrefab: {fileID: 5179622236859878852, guid: 62525a90d98534977b4492a791aca3cb, type: 3}
+  hazardPrefab: {fileID: 7085581867904662250, guid: 575023982851b574395f2606b07e8273, type: 3}
   maxHazardsNumber: 5
   scoreText: {fileID: 77107816}
   player: {fileID: 2139414340}
+  maxScore: 6
 --- !u!4 &1833495729
 Transform:
   m_ObjectHideFlags: 0

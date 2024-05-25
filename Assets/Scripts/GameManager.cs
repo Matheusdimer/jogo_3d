@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TextMeshPro scoreText;
 
     public GameObject player;
+
+    public int maxScore;
     
     private float timer;
     
@@ -47,5 +49,10 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score;
+
+        if (score >= maxScore)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }
 }
