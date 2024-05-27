@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -70,6 +71,10 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             gameManager.IncrementScore();
+        }
+        if (other.gameObject.CompareTag("flag"))
+        {
+            SceneManager.LoadScene("Win");
         }
     }
     

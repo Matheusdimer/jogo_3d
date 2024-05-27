@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
     private float timer;
     
     private int score;
+
+    [SerializeField]
+    private GameObject flag;
     
     void Start()
     {
+        flag.SetActive(false);
         StartCoroutine(SpawnHazards());
     }
 
@@ -52,7 +56,8 @@ public class GameManager : MonoBehaviour
 
         if (score >= maxScore)
         {
-            SceneManager.LoadScene("Win");
+            flag.SetActive(true);
         }
     }
+
 }
