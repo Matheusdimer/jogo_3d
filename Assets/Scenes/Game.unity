@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.21322387, g: 0.2617011, b: 0.6389514, a: 1}
+  m_IndirectSpecularColor: {r: 0.21327181, g: 0.26171872, b: 0.6389426, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5684,7 +5684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazardPrefab: {fileID: 7085581867904662250, guid: 575023982851b574395f2606b07e8273, type: 3}
-  maxHazardsNumber: 5
+  maxHazardsNumber: 3
   scoreText: {fileID: 77107816}
   player: {fileID: 2139414340}
   maxScore: 12

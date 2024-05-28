@@ -30,12 +30,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnHazards()
     {
-        var hazardsNumber = Random.Range(1, maxHazardsNumber);
+        var hazardsNumber = Random.Range(3, maxHazardsNumber);
 
         for (int i = 0; i < hazardsNumber; i++)
         {
             var x = Random.Range(-7, 7);
-            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, player.transform.position.z + 5), Quaternion.identity);
+            var z = Random.Range(3, 5);
+            var hazard = Instantiate(hazardPrefab, new Vector3(x, 11, player.transform.position.z + z), Quaternion.identity);
             hazard.GetComponent<Rigidbody>().drag = 0;
         }
 
